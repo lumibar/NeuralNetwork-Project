@@ -16,7 +16,7 @@ pipeline {
 
     stage('install') {
       steps {
-        sh './venv/bin/python -m pip install --user nose2'
+        sh './venv/bin/pip install --user nose2'
       }
     }
 
