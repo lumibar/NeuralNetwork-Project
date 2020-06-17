@@ -6,19 +6,9 @@ pipeline {
 
   }
   stages {
-    stage('venv') {
-      steps {
-        sh 'python -m  venv ./venv'
-        sh '. ./venv/bin/activate'
-        sh 'which python'
-        sh 'sudo mkdir /.local'
-        sh 'ls -al /.local'
-      }
-    }
-
     stage('install') {
       steps {
-        sh './venv/bin/pip install --user nose2'
+        sh 'pip install nose2'
       }
     }
 
