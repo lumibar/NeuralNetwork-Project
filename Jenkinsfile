@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('init venv') {
       steps {
-        sh '''python -c \'import sys; sys.path.append("/mnt/e/Development/Python/NeuralNetwork-Project/src")
+        sh '''python -c \'import sys; sys.path.append("./src")
 \''''
         sh 'ls -la'
       }
