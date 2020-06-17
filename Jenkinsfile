@@ -16,7 +16,7 @@ pipeline {
 
     stage('install') {
       steps {
-        sh 'pip install --no-cache-dir --user nose2'
+        sh 'pip install --user nose2'
       }
     }
 
