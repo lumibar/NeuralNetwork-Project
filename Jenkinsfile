@@ -11,13 +11,12 @@ pipeline {
         sh 'python -m  venv ./venv'
         sh '. ./venv/bin/activate'
         sh 'which python'
-        sh 'whoami'
       }
     }
 
     stage('install') {
       steps {
-        sh 'pip install --user nose2'
+        sh './venv/bin/python -m pip install --user nose2'
       }
     }
 
