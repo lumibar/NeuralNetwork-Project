@@ -11,6 +11,7 @@ pipeline {
         sh 'python -m  venv ./venv'
         sh '. ./venv/bin/activate'
         sh 'which python'
+        sh 'ls -al /.local'
       }
     }
 
