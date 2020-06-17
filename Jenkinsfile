@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('error') {
       steps {
-        sh 'python -m  venv --no-site-packages ./venv'
+        sh 'python -m  venv ./venv'
         sh '. ./venv/bin/activate'
       }
     }
