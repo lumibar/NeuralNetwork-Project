@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Dependencies') {
       steps {
-        sh 'sudo pip install --no-cache-dir nose2'
+        sh 'pip install --no-cache-dir nose2'
       }
     }
 
