@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Dependencies') {
       steps {
-        sh 'pip install --no-cache-dir nose2'
+        sh 'pip3 install --no-cache-dir nose2 --user'
       }
     }
 
