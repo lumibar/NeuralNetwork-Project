@@ -6,9 +6,11 @@ pipeline {
 
   }
   stages {
-    stage('install') {
+    stage('') {
       steps {
-        sh 'pip install nose2'
+        sh '''virtualenv .venv --distribute
+'''
+        sh '. .venv/bin/activate'
       }
     }
 
