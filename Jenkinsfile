@@ -6,9 +6,9 @@ pipeline {
 
   }
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        sh 'python -m virtualenv .venv'
+        sh 'python -m venv .venv'
         sh '. .venv/bin/activate && which python'
       }
     }
