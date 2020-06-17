@@ -38,10 +38,12 @@ pipeline {
         sh '.venv/bin/python3 -m nose2 -c .unittest.cfg'
       }
     }
+
   }
   post {
-        always {
-            junit 'reports/**/*.xml'
-        }
+    always {
+      junit 'reports/**/*.xml'
     }
+
+  }
 }
