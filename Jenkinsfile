@@ -9,7 +9,7 @@ pipeline {
     stage('Virtual Environment') {
       environment {
         VIRTUAL_ENV = '~/venv'
-        PATH = '"$VIRTUAL_ENV/bin:$PATH"'
+        PATH = 'PATH+EXTRA="$VIRTUAL_ENV/bin"'
       }
       steps {
         sh 'python3 -m venv $VIRTUAL_ENV'
