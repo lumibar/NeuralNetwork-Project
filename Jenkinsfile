@@ -35,8 +35,8 @@ pipeline {
       }
       steps {
         sh 'mkdir reports'
-        sh '.venv/bin/python3 -m nose2 --plugin nose2.plugins.junitxml --junit-xml --junit-xml-path reports/nose2Result.xml -s src -t src'
-        junit 'reports/nose2Result.xml'
+        sh '.venv/bin/python3 -m nose2 -c .unittest.cfg'
+        junit 'nose2-junit.xml'
       }
     }
 
