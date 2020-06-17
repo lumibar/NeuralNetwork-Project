@@ -29,13 +29,24 @@ pipeline {
     }
 
     stage('Tests') {
-      environment {
-        VIRTUAL_ENV = '/var/jenkins_home/workspace/NeuralNetwork-Project_master/.venv'
-        PATH = '"${VIRTUAL_ENV}/bin:${PATH}"'
-      }
-      steps {
-        sh 'mkdir reports'
-        sh '.venv/bin/python3 -m nose2 -c .unittest.cfg'
+      parallel {
+        stage('nose2') {
+          environment {
+            VIRTUAL_ENV = '/var/jenkins_home/workspace/NeuralNetwork-Project_master/.venv'
+            PATH = '"${VIRTUAL_ENV}/bin:${PATH}"'
+          }
+          steps {
+            sh 'mkdir reports'
+            sh '.venv/bin/python3 -m nose2 -c .unittest.cfg'
+          }
+        }
+
+        stage('pylint') {
+          steps {
+            echo 'Not Implemented Yet'
+          }
+        }
+
       }
     }
 
