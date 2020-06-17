@@ -1,24 +1,15 @@
 pipeline {
   agent {
     docker {
-      image 'python:3.8-slim'
+      image 'python:3.8'
     }
 
   }
   stages {
-    stage('Dependencies') {
+    stage('') {
       steps {
-        ws(dir: './src') {
-          sh 'pip3 install --no-cache-dir nose2 --user'
-        }
-
-      }
-    }
-
-    stage('Test') {
-      steps {
-        sh 'python -m nose2 --plugin nose2.plugins.junitxml --junit-xml --junit-xml-path test_results/nose2Result.xml -s src -t src *'
-        junit(testResults: 'test_results/nose2Result.xml', allowEmptyResults: true)
+        sh 'python -m --no-site-packages venv ./venv'
+        sh '. ./venv/bin/activate'
       }
     }
 
