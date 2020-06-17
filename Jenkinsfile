@@ -17,5 +17,18 @@ pipeline {
       }
     }
 
+    stage('Dependencies') {
+      steps {
+        sh 'pip install nose2'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        sh 'python -m nose2 --plugin nose2.plugins.junitxml --junit-xml --junit-xml-path test_results/nose2Result.xml -s src -t src *'
+        junit(testResults: 'test_results/nose2Result.xml', allowEmptyResults: true)
+      }
+    }
+
   }
 }
