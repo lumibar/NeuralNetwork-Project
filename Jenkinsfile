@@ -6,9 +6,9 @@ pipeline {
 
   }
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        sh 'python -m --no-site-packages venv ./venv'
+        sh 'python -m  venv --no-site-packages ./venv'
         sh '. ./venv/bin/activate'
       }
     }
