@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Virtual Environment') {
       environment {
-        VIRTUAL_ENV = '/opt/venv'
+        VIRTUAL_ENV = '~/venv'
         PATH = '"$VIRTUAL_ENV/bin:$PATH"'
       }
       steps {
