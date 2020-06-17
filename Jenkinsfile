@@ -8,9 +8,8 @@ pipeline {
   stages {
     stage('') {
       steps {
-        sh '''virtualenv .venv --distribute
-'''
-        sh '. .venv/bin/activate'
+        sh 'python -m virtualenv .venv'
+        sh '. .venv/bin/activate && which python'
       }
     }
 
