@@ -9,8 +9,14 @@ pipeline {
     stage('venv') {
       steps {
         sh 'python -m  venv ./venv'
-        sh 'source ./venv/bin/activate'
+        sh '. ./venv/bin/activate'
         sh 'which python'
+      }
+    }
+
+    stage('install') {
+      steps {
+        sh 'pip install --user nose2'
       }
     }
 
