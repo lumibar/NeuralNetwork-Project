@@ -134,3 +134,5 @@ dmypy.json
 .keys/
 
 test_results/
+
+reports/
