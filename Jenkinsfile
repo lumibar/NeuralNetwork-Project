@@ -36,9 +36,12 @@ pipeline {
       steps {
         sh 'mkdir reports'
         sh '.venv/bin/python3 -m nose2 -c .unittest.cfg'
-        junit 'nose2-junit.xml'
       }
     }
-
   }
+  post {
+        always {
+            junit 'reports/**/*.xml'
+        }
+    }
 }
