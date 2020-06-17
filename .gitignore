@@ -132,3 +132,5 @@ dmypy.json
 .vscode/
 
 .keys/
+
+test_results/
