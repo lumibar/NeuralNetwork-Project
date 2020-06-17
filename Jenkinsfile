@@ -12,6 +12,7 @@ pipeline {
         PATH = 'PATH+EXTRA="$VIRTUAL_ENV/bin"'
       }
       steps {
+        sh 'su'
         sh 'apt install source'
         sh 'python3 -m venv $VIRTUAL_ENV'
         sh 'which python'
