@@ -7,9 +7,12 @@ pipeline {
   }
   stages {
     stage('Virtual Environment') {
+      environment {
+        VIRTUAL_ENV = '/opt/venv'
+        PATH = '"$VIRTUAL_ENV/bin:$PATH"'
+      }
       steps {
-        sh 'python3 -m venv ./venv'
-        sh 'source ./venv/bin/activate'
+        sh 'python3 -m venv $VIRTUAL_ENV'
         sh 'which python'
       }
     }
