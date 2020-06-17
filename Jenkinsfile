@@ -19,7 +19,7 @@ pipeline {
 
     stage('Dependencies') {
       steps {
-        sh 'pip install nose2'
+        sh 'sudo pip install nose2'
       }
     }
 
