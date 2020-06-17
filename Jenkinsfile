@@ -6,23 +6,9 @@ pipeline {
 
   }
   stages {
-    stage('Virtual Environment') {
-      environment {
-        VIRTUAL_ENV = '"$PWD/venv"'
-        PATH = 'PATH+EXTRA="$VIRTUAL_ENV/bin"'
-      }
-      steps {
-        sh 'su'
-        sh 'apt install source'
-        sh 'python3 -m venv $VIRTUAL_ENV'
-        sh 'which python'
-        sh 'source ./venv/bin/activate'
-      }
-    }
-
     stage('Dependencies') {
       steps {
-        sh 'sudo pip install nose2'
+        sh 'sudo pip install --no-cache-dir nose2'
       }
     }
 
