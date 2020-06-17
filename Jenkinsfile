@@ -42,7 +42,7 @@ pipeline {
   }
   post {
     always {
-      junit 'reports/**/*.xml'
+      junit 'reports/nose2-junit.xml'
     }
 
   }
