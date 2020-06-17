@@ -6,29 +6,11 @@ pipeline {
 
   }
   stages {
-    stage('Env Variables') {
-      parallel {
-        stage('init') {
-          steps {
-            sh '''python -c \'import sys; sys.path.append("./src")
-\''''
-            sh 'ls -la'
-          }
-        }
-
-        stage('install deps') {
-          steps {
-            sh 'python -m pip install nose2'
-          }
-        }
-
-      }
-    }
-
-    stage('Unit  Tests') {
+    stage('Virtual Environment') {
       steps {
-        sh 'python -m nose2 --plugin nose2.plugins.junitxml --junit-xml --junit-xml-path test_results/nose2Result.xml -s src -t src *'
-        junit './test_results/nose2Result.xml'
+        sh 'python3 -m venv ./venv'
+        sh 'source ./venv/bin/activate'
+        sh 'which python'
       }
     }
 
