@@ -24,7 +24,7 @@ pipeline {
         PATH = '"${VIRTUAL_ENV}/bin:${PATH}"'
       }
       steps {
-        sh 'venv/bin/pip3 install nose2'
+        sh '.venv/bin/pip3 install nose2'
       }
     }
 
