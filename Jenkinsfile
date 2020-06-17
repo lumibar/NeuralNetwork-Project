@@ -6,11 +6,22 @@ pipeline {
 
   }
   stages {
-    stage('init') {
-      steps {
-        sh '''python -c \'import sys; sys.path.append("./src")
+    stage('Env Variables') {
+      parallel {
+        stage('init') {
+          steps {
+            sh '''python -c \'import sys; sys.path.append("./src")
 \''''
-        sh 'ls -la'
+            sh 'ls -la'
+          }
+        }
+
+        stage('install deps') {
+          steps {
+            sh 'python -m pip install nose2'
+          }
+        }
+
       }
     }
 
