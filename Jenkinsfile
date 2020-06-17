@@ -8,7 +8,10 @@ pipeline {
   stages {
     stage('Dependencies') {
       steps {
-        sh 'pip3 install --no-cache-dir nose2 --user'
+        ws(dir: './src') {
+          sh 'pip3 install --no-cache-dir nose2 --user'
+        }
+
       }
     }
 
