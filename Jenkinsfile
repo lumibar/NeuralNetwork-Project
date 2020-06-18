@@ -6,7 +6,7 @@ pipeline {
 
   }
   stages {
-    stage('Venv') {
+    stage('Env') {
       environment {
         VIRTUAL_ENV = '/var/jenkins_home/workspace/NeuralNetwork-Project_master/.venv'
         PATH = '"${VIRTUAL_ENV}/bin:${PATH}"'
@@ -28,7 +28,7 @@ pipeline {
       }
     }
 
-    stage('nose2') {
+    stage('Tests') {
       environment {
         VIRTUAL_ENV = '/var/jenkins_home/workspace/NeuralNetwork-Project_master/.venv'
         PATH = '"${VIRTUAL_ENV}/bin:${PATH}"'
@@ -42,8 +42,7 @@ pipeline {
   }
   post {
     always {
-      junit 'reports/nose2-junit.xml'
+      junit 'reports/*.xml'
     }
-
   }
 }
