@@ -229,7 +229,7 @@ spelling-store-unknown-words=no
 [BASIC]
 
 # Naming style matching correct argument names.
-argument-naming-style=camel_case
+argument-naming-style=camelCase
 
 # Regular expression matching correct argument names. Overrides argument-
 # naming-style.
