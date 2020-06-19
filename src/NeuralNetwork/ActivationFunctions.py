@@ -35,7 +35,7 @@ def arcTan(x):
     return math.atan(x)
 
 
-def arSinH(x):
+def arcSinH(x):
     return math.asinh(x)
 
 
@@ -59,10 +59,10 @@ def rectifiedLinear(x):
 
 
 def bipolarRectifiedLinear(x):
-    if x & 1:
-        return (-rectifiedLinear(-x))
-    else:
+    if x % 2 == 0:
         return rectifiedLinear(x)
+    else:
+        return (-rectifiedLinear(-x))
 
 
 def leakyRectifiedLinear(x):
