@@ -51,7 +51,7 @@ class ActivationTest(unittest.TestCase):
     def testBipolarRectifiedLinear(self, x, y):
         self.assertEqual(ActivationFunctions.bipolarRectifiedLinear(x), y)
 
-    @params((1, 1), (2, 2), (3, 3), (4.5, 4.5), (102, 102), (-1, -0.001), (-23.4, -0.234))
+    @params((1, 1), (2, 2), (3, 3), (4.5, 4.5), (102, 102), (-1, -0.001), (-23.4, -0.0234))
     def testLeakyRectifiedLinear(self, x, y):
         self.assertEqual(ActivationFunctions.leakyRectifiedLinear(x), y)
 
@@ -63,7 +63,7 @@ class ActivationTest(unittest.TestCase):
     def testExponentialLinear(self, x, y):
         self.assertAlmostEqual(ActivationFunctions.exponentialLinear(x), y, 2)
 
-    @params((1, 1), (2, 2), (3, 3), (4.5, 4.5), (102, 102), (-1, -0.66), (-23.4, -1.05))
+    @params((1, 1), (2, 2), (3, 3), (4.5, 4.5), (102, 102), (-1, -1.11), (-23.4, -1.76))
     def testScaledExponentialLinear(self, x, y):
         self.assertAlmostEqual(
             ActivationFunctions.scaledExponentialLinear(x), y, 2)
