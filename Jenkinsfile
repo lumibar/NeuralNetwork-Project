@@ -32,7 +32,7 @@ pipeline {
         PATH = '"${VIRTUAL_ENV}/bin:${PATH}"'
       }
       steps {
-        sh 'find ./src -name "*.pxd" | xargs -I X bash -c \'x=X;cythonize -3 -i ${x:0:-2}y\''
+        sh 'find ./src -name "*.pxd" | xargs -I X bash -c \'x=X;.venv/bin/python3 -m cythonize -3 -i ${x:0:-2}y\''
       }
     }
 
