@@ -48,7 +48,7 @@ def inverseSquareRoot(x, a=1):
 
 
 def piecewiseLinear(x, a=0.1, b=1):
-    return max(a(x+b)-b, min(a(x-b)+b, x))
+    return max(a*(x+b)-b, min(a*(x-b)+b, x))
 
 
 def rectifiedLinear(x):
@@ -86,7 +86,7 @@ def exponentialLinear(x, a=1):
         return x
 
 
-def scaledExponentialLinear(x, a=1.67326):
+def scaledExponentialLinear(x, a=1.673):
     if x < 0:
         return 1.0507 * (a * (math.exp(x) - 1))
     else:

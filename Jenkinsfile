@@ -22,7 +22,7 @@ pipeline {
         PATH = '"${VIRTUAL_ENV}/bin:${PATH}"'
       }
       steps {
-        sh '.venv/bin/pip3 install nose2 Cython'
+        sh '. .venv/bin/activate && pip3 install nose2 Cython'
       }
     }
 
@@ -32,7 +32,7 @@ pipeline {
         PATH = '"${VIRTUAL_ENV}/bin:${PATH}"'
       }
       steps {
-        sh 'find ./src -name "*.pxd" | xargs -I X bash -c \'x=X;cythonize -3 -i ${x:0:-2}y\''
+        sh '. .venv/bin/activate && find ./src -name "*.pxd" | xargs -I X bash -c \'x=X;cythonize -3 -i ${x:0:-2}y\''
       }
     }
 
@@ -43,7 +43,7 @@ pipeline {
       }
       steps {
         sh 'mkdir reports'
-        sh '.venv/bin/python3 -m nose2 -c .unittest.cfg'
+        sh '. .venv/bin/activate && nose2 -c .unittest.cfg'
       }
     }
 
