@@ -1,19 +1,17 @@
-import ActivationFunctions
+from NeuralNetwork import ActivationFunctions
 
 global geneIndex
 geneIndex = 0
 
 
-class __Gene():
-    index: int = None
-    enabled: bool = True
+class _Gene():
+    index: int
+    enabled: bool
 
 
-class Connect(__Gene):
-    start: int = None
-    end: int = None
-    weight: float = 1
-    bias: float = 0.0
+class Connect(_Gene):
+    weight: float
+    bias: float
 
     def __init__(self, start: int, stop: int, enabled: bool = True, weight: float = None):
         super().__init__()
@@ -26,9 +24,9 @@ class Connect(__Gene):
         if weight:
             self.weight = weight
 
-    def value(self, value: float):
+    def value(self, value):
         return (value * self.weight) + self.bias
 
 
-class Node(__Gene):
+class Node(_Gene):
     nodeType: str = None
