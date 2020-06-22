@@ -1,3 +1,11 @@
+cdef extern from "math.h":
+    cdef double _exp "exp" (double x)
+    cdef double _tanh "tanh" (double x)
+    cdef double _atan "atan" (double x)
+    cdef double _asinh "asinh" (double x)
+    cdef double _sqrt "sqrt" (double x)
+
+
 cpdef double identity(double x)
 cpdef double binaryStep(double x)
 cpdef double sigmoid(double x)
