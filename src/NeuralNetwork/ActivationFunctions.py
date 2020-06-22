@@ -1,4 +1,15 @@
-import math
+try:
+    from cython import compiled
+except ImportError as e:
+    compiled = False
+
+if not compiled:
+    from math import exp, tanh, atan, asinh, sqrt
+    globals()["_exp"] = exp
+    globals()["_tanh"] = tanh
+    globals()["_atan"] = atan
+    globals()["_asinh"] = asinh
+    globals()["_sqrt"] = sqrt
 
 
 def identity(x):
@@ -13,11 +24,11 @@ def binaryStep(x):
 
 
 def sigmoid(x):
-    return 1/(1+math.exp(-x))
+    return 1/(1+_exp(-x))
 
 
 def tanH(x):
-    return math.tanh(x)
+    return _tanh(x)
 
 
 def sqnl(x):
@@ -32,11 +43,11 @@ def sqnl(x):
 
 
 def arcTan(x):
-    return math.atan(x)
+    return _atan(x)
 
 
 def arcSinH(x):
-    return math.asinh(x)
+    return _asinh(x)
 
 
 def elliotSig(x):
@@ -44,7 +55,7 @@ def elliotSig(x):
 
 
 def inverseSquareRoot(x, a=1):
-    return x/math.sqrt(1+(a*(x**2)))
+    return x/_sqrt(1+(a*(x**2)))
 
 
 def piecewiseLinear(x, a=0.1, b=1):
@@ -81,13 +92,13 @@ def parametricRectifiedLinear(x, a=0.5):
 
 def exponentialLinear(x, a=1):
     if x <= 0:
-        return a * (math.exp(x) - 1)
+        return a * (_exp(x) - 1)
     else:
         return x
 
 
 def scaledExponentialLinear(x, a=1.673):
     if x < 0:
-        return 1.0507 * (a * (math.exp(x) - 1))
+        return 1.0507 * (a * (_exp(x) - 1))
     else:
         return x

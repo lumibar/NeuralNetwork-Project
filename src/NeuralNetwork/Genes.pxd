@@ -5,6 +5,8 @@ cdef class _Gene:
     cdef public bint enabled
 
 cdef class Connect(_Gene):
-    cdef public int start, end
+    cdef public unsigned int start, end
     cdef public double weight, bias
-    cpdef double value(self, double value)
+
+cdef class Node(_Gene):
+    cdef public str nodeType
