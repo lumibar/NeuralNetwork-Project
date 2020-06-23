@@ -10,8 +10,6 @@ if not compiled:
     globals()["_atan"] = atan
     globals()["_asinh"] = asinh
     globals()["_sqrt"] = sqrt
-else:
-    print("compiled")
 
 
 def identity(x):
