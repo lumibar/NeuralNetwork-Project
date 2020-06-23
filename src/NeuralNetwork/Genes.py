@@ -5,7 +5,10 @@ geneIndex = 0
 
 
 def _dot(a, b):
-    return sum(aterm * bterm for aterm, bterm in zip(a, b))
+    x = 0.0
+    for i in range(len(a)):
+        x += a[i]*b[i]
+    return x
 
 
 class _Gene():
@@ -17,7 +20,7 @@ class Connect(_Gene):
     weight: float
     bias: float
 
-    def __init__(self, start: int, stop: int, enabled: bool = True, weight: float = None):
+    def __init__(self, start, stop, enabled=True, weight=0.0):
         global geneIndex
         self.index = geneIndex
         geneIndex += 1
@@ -42,7 +45,7 @@ class Node(_Gene):
         elif activation:
             self.activation = activation
 
-    def value(self, inputs: list, network):
+    def value(self, inputs, network):
         if self.nodeType == "input":
             y = inputs[self.inputIndex]
             return getattr(ActivationFunctions, self.activation)(y)
