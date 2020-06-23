@@ -32,7 +32,7 @@ pipeline {
         PATH = '"${VIRTUAL_ENV}/bin:${PATH}"'
       }
       steps {
-        sh '. .venv/bin/activate && find ./src -name "*.pxd" | xargs -I X bash -c \'x=X;cythonize -3 -i ${x:0:-2}y\''
+        sh '. .venv/bin/activate && cd src && python setup.py build_ext --inplace'
       }
     }
 
